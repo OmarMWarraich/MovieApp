@@ -122,3 +122,47 @@ select {
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
+
+.nav-header li a:hover {
+  color: hsl(var(--clr-light));
+}
+
+.nav-header li a:active {
+  color: hsl(var(--clr-light));
+}
+
+.nav-header li a:visited {
+  color: hsl(var(--clr-dark));
+}
+
+footer {
+  background-color: hsl(var(--clr-dark));
+  color: hsl(var(--clr-white));
+  padding: 1rem 2rem;
+  display: flex;
+
+  /* justify-content: space-between; */
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+footer p {
+  font-family: var(--ff-sans-cond);
+  font-size: var(--fs-300);
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.footer-content {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-header li a {
+    font-size: var(--fs-200);
+  }
+}
+
