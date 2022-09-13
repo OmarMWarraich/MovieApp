@@ -16,7 +16,7 @@
   --fs-700: 3.5rem;
   --fs-600: 2rem;
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 1.325rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
 
@@ -97,4 +97,28 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: hsl(var(--clr-white));
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+}
+
+.nav-header li {
+  list-style: none;
+}
+
+.nav-header li a {
+  text-decoration: none;
+  color: hsl(var(--clr-dark));
+  font-family: var(--ff-sans-cond);
+  font-size: var(--fs-400);
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
 }
