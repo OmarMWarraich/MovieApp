@@ -1,0 +1,21 @@
+
+.reservations-pop-up {
+  height: 90vh;
+  width: 90vw;
+  position: fixed;
+  margin: 5vh 5vw;
+  top: 0;
+  border: black 5px solid;
+}
+
+.reservation-close {
+  position: absolute;
+  font-size: 40px;
+  font-weight: bold;
+  right: 10px;
+  top: 10px;
+}
+
+.hidden {
+  display: none;
+}
