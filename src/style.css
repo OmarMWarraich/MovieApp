@@ -139,13 +139,8 @@ footer {
   background-color: hsl(var(--clr-dark));
   color: hsl(var(--clr-white));
   padding: 1rem 2rem;
-  display: flex;
-
-  /* justify-content: space-between; */
-  align-items: center;
-  position: absolute;
   width: 100%;
-  bottom: 0;
+  margin-bottom: 0;
 }
 
 footer p {
@@ -160,9 +155,46 @@ footer p {
   margin: 0 auto;
 }
 
+.shows-container {
+  display: grid;
+  grid-template-columns: repeat(5, 230px);
+  gap: 0.7rem;
+  margin-left: 0.3rem;
+}
+
+.show-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 500px;
+  align-items: center;
+  font-size: var(--fs-300);
+}
+
+.show-card-image {
+  margin-top: 0.5rem;
+}
+
+.show-card-content {
+  margin-top: 0.5rem;
+}
+
+.image {
+  margin-left: 0.5rem;
+}
+
+.likes,
+.comments {
+  font-size: var(--fs-200);
+}
+
+.button {
+  margin-top: 0.5rem;
+}
+
 @media screen and (max-width: 768px) {
   .nav-header li a {
     font-size: var(--fs-200);
   }
 }
-

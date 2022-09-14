@@ -1,5 +1,6 @@
 import Logo from '../assets/logo.png';
 
+const header = document.querySelector('header');
 const navBar = () => {
   const nav = document.createElement('nav');
 
@@ -12,7 +13,7 @@ const navBar = () => {
         </ul>
     `;
 
-  document.body.appendChild(nav);
+  header.appendChild(nav);
 
   const logo = document.querySelector('.logo');
   const myLogo = new Image();
