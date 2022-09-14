@@ -1,16 +1,36 @@
 import '../modulesCSS/reservationsPopUP.css';
 
-// const displayInfo = (mealInfo) => {
-//   console.log(mealInfo);
-// };
+const displayInfo = (data) => {
+  const showInfo = document.querySelector('.show-info');
+  showInfo.innerHTML = `
+  <figure>
+    <img src="${data.image.medium}" alt="${data.name}">
+  </figure>
+  <h2>${data.name}</h2>
+  <div class="additional-info">
+     <div class="info-1">
+        <p>Type: ${data.type}</p>
+        <p>Premiered: ${data.premiered}</p>
+        <p>genres: ${data.genres}</p>
+     </div>
+    <div class="info-2">
+        <p>Langauge: ${data.language}</p>
+        <p>Ended: ${data.ended}</p>
+        <p>Rating: ${data.rating.average}</p>
+    </div>
+  </div>
+  <div class="reservations-done"></div>
+  <div class="add-reservation"></div>
+  `;
+  console.log(data);
+};
 
-// const getMealInfo = async (id) => {
-//   const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
-//   const response = await fetch(url);
-//   const data = await response.json();
-//   const mealInfo = data.meals[0];
-//   displayInfo(mealInfo);
-// };
+const getShowInfo = async (id) => {
+  const url = `https://api.tvmaze.com/shows/${id}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  displayInfo(data);
+};
 /*
 const getinvolveAPI = async () => {
   const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
@@ -29,7 +49,7 @@ const getinvolveAPI = async () => {
   console.log(data);
 };
 */
-const ReservationsPopUP = () => {
+const ReservationsPopUP = (id) => {
   const popUP = document.createElement('section');
   const elements = document.querySelectorAll('body>*');
   for (let i = 0; i < elements.length; i += 1) {
@@ -38,10 +58,10 @@ const ReservationsPopUP = () => {
   popUP.classList.add('reservations-pop-up');
   popUP.innerHTML = `
   <i class="fa-solid fa-xmark reservation-close"></i>
-  <div class="meal-info"></div>
+  <div class="show-info"></div>
       `;
   document.body.appendChild(popUP);
-  // getMealInfo(52772);
+  getShowInfo(id);
   const xmark = document.querySelector('.reservations-pop-up .reservation-close');
   xmark.addEventListener('click', () => {
     const popUP = document.querySelector('.reservations-pop-up');

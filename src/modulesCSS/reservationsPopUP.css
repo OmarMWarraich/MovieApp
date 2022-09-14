@@ -19,3 +19,19 @@
 .hidden {
   display: none;
 }
+
+.show-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5vh 5vw;
+}
+
+.additional-info {
+  display: flex;
+}
+
+.info-2 {
+  margin-left: 20px;
+}

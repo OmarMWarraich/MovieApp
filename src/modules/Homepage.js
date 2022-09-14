@@ -33,7 +33,9 @@ const shows = () => {
       const reservationsButtons = document.querySelectorAll('.reservation');
       for (let i = 0; i < reservationsButtons.length; i += 1) {
         const button = reservationsButtons[i];
-        button.addEventListener('click', reservationsPopUP);
+        button.addEventListener('click', (e) => {
+          reservationsPopUP(e.currentTarget.id);
+        });
       }
     });
 };
