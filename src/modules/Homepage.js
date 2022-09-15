@@ -1,5 +1,7 @@
 import reservationsPopUP from './reservationsPopUp.js';
+import commentsPopUP from './commentsPopUp.js';
 import '../modulesCSS/reservationsPopUP.css';
+import '../modulesCSS/commentsPopUP.css';
 
 const main = document.querySelector('main');
 const shows = () => {
@@ -25,7 +27,7 @@ const shows = () => {
                 </div>
                 <div class="likes">Likes</div>
                 <i class="fa-sharp fa-solid fa-heart"></i>
-                <button class="button" type="button">Comments</button>
+                <button class="button comment" type="button" id=${show.id}>Comments</button>
                 <button class="button reservation" type="button" id=${show.id}>Reservations</button>
             `;
         showsContainer.appendChild(showCard);
@@ -36,6 +38,14 @@ const shows = () => {
         const button = reservationsButtons[i];
         button.addEventListener('click', (e) => {
           reservationsPopUP(e.currentTarget.id);
+        });
+      }
+
+      const commentsButtons = document.querySelectorAll('.comment');
+      for (let j = 0; j < commentsButtons.length; j += 1) {
+        const button = commentsButtons[j];
+        button.addEventListener('click', (e) => {
+          commentsPopUP(e.currentTarget.id);
         });
       }
     });

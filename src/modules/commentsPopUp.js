@@ -1,4 +1,4 @@
-const reservationCounter = (dataArray) => dataArray.length;
+const commentCounter = (dataArray) => dataArray.length;
 const sendRequest = async (apiURL, data) => {
   const url = apiURL;
   const response = await fetch(url, {
@@ -15,50 +15,32 @@ const sendRequest = async (apiURL, data) => {
   });
   return response.text();
 };
-// function that we used to get our unique id which so our id is kc8ECGRfLEBUCmn5ZAnc
-/*
-const getId = async () => {
-  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
-  const response = await fetch(url, {
-    method: 'POST',
-    mode: 'cors',
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    redirect: 'follow',
-    referrerPolicy: 'no-referrer',
-  });
-  const id = await response.text();
-  console.log(id);
-};
-*/
-const displayReservationData = (data) => {
-  const reservations = document.querySelector('.reservations-done');
-  const reservationsData = JSON.parse(data);
-  const numOfReservations = reservationCounter(reservationsData);
-  if (reservationsData.error) {
-    reservations.innerHTML = `
-    <h3>Reservations (0)</h3>
-    <p>No reservation has been done yet</p>
+
+const displayCommentData = (data) => {
+  const comments = document.querySelector('.reservations-done');
+  const commentsData = JSON.parse(data);
+  const numOfComments = commentCounter(commentsData);
+  if (commentsData.error) {
+    comments.innerHTML = `
+    <h3>Comments(0)</h3>
+    <p>No comment has been done yet</p>
     `;
     return;
   }
-  reservations.innerHTML = `
-  <h3>Reservations (${numOfReservations})</h3>
+  comments.innerHTML = `
+  <h3>Comments(${numOfComments})</h3>
   `;
-  for (let i = 0; i < numOfReservations; i += 1) {
+  for (let i = 0; i < numOfComments; i += 1) {
     const p = document.createElement('p');
-    p.innerHTML = `${reservationsData[i].date_start} &nbsp; -  &nbsp; ${reservationsData[i].date_end}  &nbsp;&nbsp; by  &nbsp;&nbsp; ${reservationsData[i].username}`;
-    reservations.appendChild(p);
+    p.innerHTML = `${commentsData[i].creation_date} &nbsp; by &nbsp;${commentsData[i].username}: &nbsp;${commentsData[i].comment}`;
+    comments.appendChild(p);
   }
 };
 const getinvolveAPI = async (id) => {
-  const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/kc8ECGRfLEBUCmn5ZAnc/reservations?item_id=${id}`;
+  const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/kc8ECGRfLEBUCmn5ZAnc/comments?item_id=${id}`;
   const response = await fetch(url);
   const data = await response.text();
-  displayReservationData(data);
+  displayCommentData(data);
 };
 const displayInfo = (data) => {
   const showInfo = document.querySelector('.show-info');
@@ -81,41 +63,34 @@ const displayInfo = (data) => {
   </div>
   <div class="reservations-done"></div>
   <form action="" method="get">
-  <h3>Add a reservation</h3>
+  <h3>Add a comment</h3>
   <div class="name">
       <label for="name"></label>
       <input type="text" name="name" id="name" placeholder="Your Name" required>
   </div>
-  <div class="start-date">
-      <label for="startDate"></label>
-      <input type="date" name="startDate" id="startDate" required>
+  <div class="comment-message">
+      <label for="commentMessage"></label>
+      <textarea name="commentMessage" id="commentMessage" cols="30" rows="5" placeholder="Your insights" required></textarea>
   </div>
-  <div class="end-date">
-      <label for="endDate"></label>
-      <input type="date" name="endDate" id="endDate" required>
-  </div>
-  <button type="submit">Reserve</button>
+  <button type="submit">Comment</button>
 </form>
   `;
   getinvolveAPI(data.id);
-  const reserveButton = document.querySelector('form button');
-  reserveButton.addEventListener('click', async (e) => {
+  const commentButton = document.querySelector('form button');
+  commentButton.addEventListener('click', async (e) => {
     e.preventDefault();
     const name = document.querySelector('form .name input');
-    const startDate = document.querySelector('form .start-date input');
-    const endDate = document.querySelector('form .end-date input');
-    const reservationData = {
+    const theComment = document.querySelector('form .comment-message textarea');
+    const commentData = {
       item_id: data.id,
       username: name.value,
-      date_start: startDate.value,
-      date_end: endDate.value,
+      comment: theComment.value,
     };
-    const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/kc8ECGRfLEBUCmn5ZAnc/reservations/';
-    await sendRequest(url, reservationData);
+    const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/kc8ECGRfLEBUCmn5ZAnc/comments/';
+    await sendRequest(url, commentData);
     getinvolveAPI(data.id);
     name.value = '';
-    startDate.value = '';
-    endDate.value = '';
+    theComment.value = '';
   });
 };
 const getShowInfo = async (id) => {
@@ -124,7 +99,7 @@ const getShowInfo = async (id) => {
   const data = await response.json();
   displayInfo(data);
 };
-const ReservationsPopUP = (id) => {
+const commentsPopUP = (id) => {
   const popUP = document.createElement('section');
   const elements = document.querySelectorAll('body>*');
   for (let i = 0; i < elements.length; i += 1) {
@@ -148,4 +123,4 @@ const ReservationsPopUP = (id) => {
   });
 };
 
-export { ReservationsPopUP as default, reservationCounter };
+export { commentsPopUP as default, commentCounter };
