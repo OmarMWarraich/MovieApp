@@ -2,6 +2,7 @@ import reservationsPopUP from './reservationsPopUp.js';
 import commentsPopUP from './commentsPopUp.js';
 import '../modulesCSS/reservationsPopUP.css';
 import '../modulesCSS/commentsPopUP.css';
+import { getLikes, postLikes } from './likes.js';
 
 const main = document.querySelector('main');
 const shows = () => {
@@ -25,8 +26,8 @@ const shows = () => {
                 <div class="show-card-content">
                     <div class="show-card-title">${show.name}</div>
                 </div>
-                <div class="likes">Likes</div>
-                <i class="fa-sharp fa-solid fa-heart"></i>
+                <div class="likes${show.id}" ></div>
+                <i class="fa-sharp fa-solid fa-heart" id=${show.id}></i>
                 <button class="button comment" type="button" id=${show.id}>Comments</button>
                 <button class="button reservation" type="button" id=${show.id}>Reservations</button>
             `;
@@ -48,7 +49,17 @@ const shows = () => {
           commentsPopUP(e.currentTarget.id);
         });
       }
-    });
-};
 
+      const likesButtons = document.querySelectorAll('.fa-heart');
+      for (let k = 0; k < likesButtons.length; k += 1) {
+        const button = likesButtons[k];
+        getLikes(button.id);
+        button.addEventListener('click', (e) => {
+          postLikes(e.currentTarget.id);
+          getLikes(e.currentTarget.id);
+        }
+        );
+    };
+});
+}
 export default shows;
