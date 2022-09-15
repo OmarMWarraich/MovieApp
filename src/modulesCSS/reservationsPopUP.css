@@ -6,6 +6,7 @@
   margin: 5vh 5vw;
   top: 0;
   border: black 5px solid;
+  overflow: auto;
 }
 
 .reservation-close {
