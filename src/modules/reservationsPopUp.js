@@ -40,17 +40,17 @@ const displayReservationData = (data) => {
   const numOfReservations = reservationCounter(reservationsData);
   if (reservationsData.error) {
     reservations.innerHTML = `
-    <h3>Reservations(0)</h3>
+    <h3>Reservations (0)</h3>
     <p>No reservation has been done yet</p>
     `;
     return;
   }
   reservations.innerHTML = `
-  <h3>Reservations(${numOfReservations})</h3>
+  <h3>Reservations (${numOfReservations})</h3>
   `;
   for (let i = 0; i < numOfReservations; i += 1) {
     const p = document.createElement('p');
-    p.textContent = `${reservationsData[i].date_start} - ${reservationsData[i].date_end} by  ${reservationsData[i].username}`;
+    p.innerHTML = `${reservationsData[i].date_start} &nbsp; -  &nbsp; ${reservationsData[i].date_end}  &nbsp;&nbsp; by  &nbsp;&nbsp; ${reservationsData[i].username}`;
     reservations.appendChild(p);
   }
 };

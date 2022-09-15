@@ -31,8 +31,57 @@
 
 .additional-info {
   display: flex;
+  justify-content: space-between;
+}
+
+.additional-info * {
+  margin: 10px 0;
 }
 
 .info-2 {
   margin-left: 20px;
+}
+
+.reservations-pop-up figure {
+  width: 60%;
+}
+
+.reservations-pop-up figure img {
+  width: 100%;
+}
+
+.reservations-pop-up h2 {
+  margin: 30px 0;
+}
+
+.reservations-pop-up .additional-info,
+.reservations-pop-up .reservations-done,
+.reservations-pop-up form {
+  width: 90%;
+}
+
+.reservations-pop-up .reservations-done {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.reservations-pop-up form * {
+  margin: 10px 0;
+}
+
+.reservations-pop-up .reservations-done * {
+  margin: 10px 0;
+}
+
+.reservations-pop-up form {
+  text-align: center;
+}
+
+.reservations-pop-up form input {
+  width: 70%;
+  padding-left: 20px;
+}
+
+.reservations-pop-up button {
+  padding: 10px;
 }
