@@ -1,7 +1,4 @@
-import '../modulesCSS/reservationsPopUP.css';
-
 const reservationCounter = (dataArray) => dataArray.length;
-
 const sendRequest = async (apiURL, data) => {
   const url = apiURL;
   const response = await fetch(url, {
@@ -148,4 +145,4 @@ const ReservationsPopUP = (id) => {
   });
 };
 
-export default ReservationsPopUP;
+export { ReservationsPopUP as default, reservationCounter };

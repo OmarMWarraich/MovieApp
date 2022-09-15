@@ -1,4 +1,5 @@
 import reservationsPopUP from './reservationsPopUp.js';
+import '../modulesCSS/reservationsPopUP.css';
 
 const main = document.querySelector('main');
 const shows = () => {
