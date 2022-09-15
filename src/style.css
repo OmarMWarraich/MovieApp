@@ -158,8 +158,9 @@ footer p {
 .shows-container {
   display: grid;
   grid-template-columns: repeat(5, 230px);
-  gap: 0.7rem;
+  gap: 1.2rem;
   margin-left: 0.3rem;
+  justify-content: center;
 }
 
 .show-card {
