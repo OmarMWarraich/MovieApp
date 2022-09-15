@@ -7,9 +7,9 @@ const navBar = () => {
   nav.innerHTML = `
         <ul class="nav-header">
             <li class="logo"></li>
-            <li><a href="#">Ingredients</a></li>
-            <li><a href="#">Categories</a></li>
-            <li><a href="#">Area</a></li>
+            <li><a href="#">Shows List</a></li>
+            <li><a href="#">Best sales</a></li>
+            <li><a href="#">Contact us</a></li>
         </ul>
     `;
 

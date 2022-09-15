@@ -1,3 +1,6 @@
+import reservationsPopUP from './reservationsPopUp.js';
+import '../modulesCSS/reservationsPopUP.css';
+
 const main = document.querySelector('main');
 const shows = () => {
   fetch('https://api.tvmaze.com/shows')
@@ -23,11 +26,18 @@ const shows = () => {
                 <div class="likes">Likes</div>
                 <i class="fa-sharp fa-solid fa-heart"></i>
                 <button class="button" type="button">Comments</button>
-                <button class="button" type="button">Reservations</button>
+                <button class="button reservation" type="button" id=${show.id}>Reservations</button>
             `;
         showsContainer.appendChild(showCard);
       }
       main.appendChild(showsContainer);
+      const reservationsButtons = document.querySelectorAll('.reservation');
+      for (let i = 0; i < reservationsButtons.length; i += 1) {
+        const button = reservationsButtons[i];
+        button.addEventListener('click', (e) => {
+          reservationsPopUP(e.currentTarget.id);
+        });
+      }
     });
 };
 
