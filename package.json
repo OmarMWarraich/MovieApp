@@ -7,7 +7,8 @@
     "build": "webpack",
     "dev": "webpack --mode development",
     "start": "webpack serve --open",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,7 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.26.0",
-    "hint": "^2.0.0",
+    "hint": "^7.1.2",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^29.0.1",
     "jest-environment-jsdom": "^29.0.1",
@@ -44,6 +45,7 @@
     "webpack-dev-server": "^4.11.0"
   },
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"

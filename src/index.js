@@ -4,4 +4,3 @@ import shows from './modules/Homepage.js';
 
 shows();
 navBar();
-

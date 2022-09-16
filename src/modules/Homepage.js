@@ -12,7 +12,8 @@ const shows = () => {
       const shows = data;
       const showsContainer = document.createElement('div');
       showsContainer.className = 'shows-container';
-      for (let i = 0; i < shows.length; i += 1) {
+      // eslint-disable-next-line no-plusplus
+      for (let i = 0; i < shows.length; i++) {
         const show = shows[i];
         const showCard = document.createElement('div');
         showCard.className = 'show-card';
@@ -25,11 +26,11 @@ const shows = () => {
                 <div class="show-card-content">
                     <div class="show-card-title">${show.name}</div>
                 </div>
-                <div class="likes-row>
-                    <div class="likes${show.id}" >
-                      <p> Likes (0) </p>
-                    </div>
-                    <i class="fa-sharp fa-solid fa-heart" id=${show.id}></i>
+                <div class="likes-row">
+                <div class="likes${show.id}" >
+                  <p>Likes (0)</p>
+                </div>
+                  <i class="fa-sharp fa-solid fa-heart" id=${show.id}></i>
                 </div>
                 <button class="button comment" type="button" id=${show.id}>Comments</button>
                 <button class="button reservation" type="button" id=${show.id}>Reservations</button>
@@ -63,7 +64,6 @@ const shows = () => {
             button.style.color = 'red';
           }
         }
-        
         button.addEventListener('click', async (e) => {
           let likedArray = [];
           if (window.localStorage.likedArray) {
@@ -78,8 +78,8 @@ const shows = () => {
             button.style.color = 'red';
           }
         });
-    };
-});
+      }
+    });
   getLikes();
-}
+};
 export default shows;
