@@ -3,6 +3,7 @@ import commentsPopUP from './commentsPopUp.js';
 import '../modulesCSS/reservationsPopUP.css';
 import '../modulesCSS/commentsPopUP.css';
 import { getLikes, postLikes } from './likes.js';
+import numberOfItems from './numberOfItems.js';
 
 const main = document.querySelector('main');
 const shows = () => {
@@ -10,6 +11,8 @@ const shows = () => {
     .then((response) => response.json())
     .then((data) => {
       const shows = data;
+      const a = document.querySelector('header nav ul li:nth-of-type(2) a');
+      a.textContent = `Shows List (${numberOfItems(shows)})`;
       const showsContainer = document.createElement('div');
       showsContainer.className = 'shows-container';
       // eslint-disable-next-line no-plusplus
