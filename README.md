@@ -2,7 +2,7 @@
 
 # Project Name
 
-> webpack-linters-template
+> movies-app
 
 ## Built With
 
@@ -10,7 +10,7 @@
 
 ## Live Demo 
 
-[Live Demo Link]()
+[Live demo](http://cryptoova.me/group-capstone/dist/index.html)
 
 ## Getting Started
 
@@ -39,6 +39,18 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@omarwarraich1](https://twitter.com/@omarwarraich1)
 - LinkedIn: [Omar Mohammad](https://www.linkedin.com/in/omar-mohammad-a9902847/)
 
+👤 **Author2**
+
+- GitHub: [@mohamed20163858](https://github.com/mohamed20163858)
+- Twitter: [@mohamed20163858](https://twitter.com/mohamed20163858)
+- LinkedIn: [mohamed-mohsen-685a4995](https://www.linkedin.com/in/mohamed-mohsen-685a4995/)
+
+👤 **Author3**
+
+- GitHub: [@normainobary2021](https://github.com/normainobary2021/)
+- Twitter: [@NormanAinobush2](https://twitter.com/NormanAinobush2)
+- LinkedIn: [norman-ainobushoborozi](https://www.linkedin.com/in/norman-ainobushoborozi/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
@@ -51,9 +63,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- 
-- 
-- 
+- Thank You [Microverse](www.microverse.org) team.
+- Thanks to everyone who will get time to check this code and suggest any [issues](https://github.com/OmarMWarraich/group-capstone/issues)
 
 ## 📝 License
 
