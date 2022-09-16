@@ -10,7 +10,7 @@
 
 ## Live Demo 
 
-Coming Soon.
+[Live demo](http://cryptoova.me/group-capstone/dist/index.html)
 
 ## Getting Started
 
