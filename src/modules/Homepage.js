@@ -30,13 +30,23 @@ const shows = () => {
                 <div class="likes${show.id}" >
                   <p>Likes (0)</p>
                 </div>
-                  <i class="fa-sharp fa-solid fa-heart" id=${show.id}></i>
+                 <i class="fa-sharp fa-solid fa-heart" id=${show.id}></i>
                 </div>
                 <button class="button comment" type="button" id=${show.id}>Comments</button>
                 <button class="button reservation" type="button" id=${show.id}>Reservations</button>
             `;
         showsContainer.appendChild(showCard);
       }
+
+      const itemsCounter = document.createElement('div');
+      itemsCounter.classList.add('items-counter');
+
+      const items = () => {
+        itemsCounter.innerHTML = `Total Items: (${shows.length})`;
+        main.appendChild(itemsCounter);
+      };
+      items();
+
       main.appendChild(showsContainer);
       const reservationsButtons = document.querySelectorAll('.reservation');
       for (let i = 0; i < reservationsButtons.length; i += 1) {
