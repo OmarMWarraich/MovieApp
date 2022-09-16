@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OmarMWarraich/todo-list.git"
+    "url": "git+https://github.com/OmarMWarraich/group-capstone.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/OmarMWarraich/todo-list/issues"
+    "url": "https://github.com/OmarMWarraich/group-capstone/issues"
   },
-  "homepage": "https://github.com/OmarMWarraich/todo-list#readme",
+  "homepage": "https://github.com/OmarMWarraich/group-capstone#readme",
   "devDependencies": {
     "@babel/core": "^7.19.1",
     "@babel/plugin-transform-modules-commonjs": "^7.18.6",

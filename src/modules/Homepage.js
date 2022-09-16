@@ -40,16 +40,6 @@ const shows = () => {
             `;
         showsContainer.appendChild(showCard);
       }
-
-      const itemsCounter = document.createElement('div');
-      itemsCounter.classList.add('items-counter');
-
-      const items = () => {
-        itemsCounter.innerHTML = `Total Items: (${shows.length})`;
-        main.appendChild(itemsCounter);
-      };
-      items();
-
       main.appendChild(showsContainer);
       const reservationsButtons = document.querySelectorAll('.reservation');
       for (let i = 0; i < reservationsButtons.length; i += 1) {
