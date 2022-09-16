@@ -12,8 +12,7 @@ const shows = () => {
       const shows = data;
       const showsContainer = document.createElement('div');
       showsContainer.className = 'shows-container';
-      // eslint-disable-next-line no-plusplus
-      for (let i = 0; i < shows.length; i++) {
+      for (let i = 0; i < shows.length; i += 1) {
         const show = shows[i];
         const showCard = document.createElement('div');
         showCard.className = 'show-card';
@@ -26,8 +25,10 @@ const shows = () => {
                 <div class="show-card-content">
                     <div class="show-card-title">${show.name}</div>
                 </div>
+                <div class="likes-row>
                 <div class="likes${show.id}" ></div>
                 <i class="fa-sharp fa-solid fa-heart" id=${show.id}></i>
+                </div>
                 <button class="button comment" type="button" id=${show.id}>Comments</button>
                 <button class="button reservation" type="button" id=${show.id}>Reservations</button>
             `;
@@ -53,13 +54,30 @@ const shows = () => {
       const likesButtons = document.querySelectorAll('.fa-heart');
       for (let k = 0; k < likesButtons.length; k += 1) {
         const button = likesButtons[k];
-        getLikes(button.id);
-        button.addEventListener('click', (e) => {
-          postLikes(e.currentTarget.id);
-          getLikes(e.currentTarget.id);
+        if (window.localStorage.likedArray) {
+          const likedArray = JSON.parse(window.localStorage.likedArray);
+          if (likedArray.includes(button.id)) {
+            button.classList.add('clicked');
+            button.style.color = 'red';
+          }
         }
-        );
+        
+        button.addEventListener('click', async (e) => {
+          let likedArray = [];
+          if (window.localStorage.likedArray) {
+            likedArray = JSON.parse(window.localStorage.likedArray);
+          }
+          if (!button.classList.contains('clicked')) {
+            likedArray.push(e.currentTarget.id);
+            window.localStorage.likedArray = JSON.stringify(likedArray);
+            await postLikes(e.currentTarget.id);
+            getLikes();
+            button.classList.add('clicked');
+            button.style.color = 'red';
+          }
+        });
     };
 });
+  getLikes();
 }
 export default shows;
