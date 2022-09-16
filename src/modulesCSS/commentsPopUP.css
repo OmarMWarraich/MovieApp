@@ -5,7 +5,7 @@
   position: fixed;
   margin: 5vh 5vw;
   top: 0;
-  border: black 5px solid;
+  border: hsl(231 77% 90%) 5px solid;
   overflow: auto;
 }
 

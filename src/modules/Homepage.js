@@ -26,8 +26,10 @@ const shows = () => {
                     <div class="show-card-title">${show.name}</div>
                 </div>
                 <div class="likes-row>
-                <div class="likes${show.id}" ></div>
-                <i class="fa-sharp fa-solid fa-heart" id=${show.id}></i>
+                    <div class="likes${show.id}" >
+                      <p> Likes (0) </p>
+                    </div>
+                    <i class="fa-sharp fa-solid fa-heart" id=${show.id}></i>
                 </div>
                 <button class="button comment" type="button" id=${show.id}>Comments</button>
                 <button class="button reservation" type="button" id=${show.id}>Reservations</button>
