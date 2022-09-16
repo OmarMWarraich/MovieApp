@@ -10,7 +10,7 @@
 
 ## Live Demo 
 
-[Live Demo Link]()
+Coming Soon.
 
 ## Getting Started
 
@@ -63,9 +63,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- 
-- 
-- 
+- Thank You [Microverse](www.microverse.org) team.
+- Thanks to everyone who will get time to check this code and suggest any [issues](https://github.com/OmarMWarraich/group-capstone/issues)
 
 ## 📝 License
 

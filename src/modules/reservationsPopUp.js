@@ -15,25 +15,7 @@ const sendRequest = async (apiURL, data) => {
   });
   return response.text();
 };
-// function that we used to get our unique id which so our id is kc8ECGRfLEBUCmn5ZAnc
-/*
-const getId = async () => {
-  const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
-  const response = await fetch(url, {
-    method: 'POST',
-    mode: 'cors',
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    redirect: 'follow',
-    referrerPolicy: 'no-referrer',
-  });
-  const id = await response.text();
-  console.log(id);
-};
-*/
+
 const displayReservationData = (data) => {
   const reservations = document.querySelector('.reservations-done');
   const reservationsData = JSON.parse(data);

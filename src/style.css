@@ -194,6 +194,17 @@ footer p {
   margin-top: 0.5rem;
 }
 
+.likes-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 5rem;
+}
+
+.items-counter {
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
   .nav-header li a {
     font-size: var(--fs-200);

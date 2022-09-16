@@ -2,6 +2,7 @@ import reservationsPopUP from './reservationsPopUp.js';
 import commentsPopUP from './commentsPopUp.js';
 import '../modulesCSS/reservationsPopUP.css';
 import '../modulesCSS/commentsPopUP.css';
+import { getLikes, postLikes } from './likes.js';
 
 const main = document.querySelector('main');
 const shows = () => {
@@ -25,13 +26,27 @@ const shows = () => {
                 <div class="show-card-content">
                     <div class="show-card-title">${show.name}</div>
                 </div>
-                <div class="likes">Likes</div>
-                <i class="fa-sharp fa-solid fa-heart"></i>
+                <div class="likes-row">
+                <div class="likes${show.id}" >
+                  <p>Likes (0)</p>
+                </div>
+                 <i class="fa-sharp fa-solid fa-heart" id=${show.id}></i>
+                </div>
                 <button class="button comment" type="button" id=${show.id}>Comments</button>
                 <button class="button reservation" type="button" id=${show.id}>Reservations</button>
             `;
         showsContainer.appendChild(showCard);
       }
+
+      const itemsCounter = document.createElement('div');
+      itemsCounter.classList.add('items-counter');
+
+      const items = () => {
+        itemsCounter.innerHTML = `Total Items: (${shows.length})`;
+        main.appendChild(itemsCounter);
+      };
+      items();
+
       main.appendChild(showsContainer);
       const reservationsButtons = document.querySelectorAll('.reservation');
       for (let i = 0; i < reservationsButtons.length; i += 1) {
@@ -48,7 +63,33 @@ const shows = () => {
           commentsPopUP(e.currentTarget.id);
         });
       }
-    });
-};
 
+      const likesButtons = document.querySelectorAll('.fa-heart');
+      for (let k = 0; k < likesButtons.length; k += 1) {
+        const button = likesButtons[k];
+        if (window.localStorage.likedArray) {
+          const likedArray = JSON.parse(window.localStorage.likedArray);
+          if (likedArray.includes(button.id)) {
+            button.classList.add('clicked');
+            button.style.color = 'red';
+          }
+        }
+        button.addEventListener('click', async (e) => {
+          let likedArray = [];
+          if (window.localStorage.likedArray) {
+            likedArray = JSON.parse(window.localStorage.likedArray);
+          }
+          if (!button.classList.contains('clicked')) {
+            likedArray.push(e.currentTarget.id);
+            window.localStorage.likedArray = JSON.stringify(likedArray);
+            await postLikes(e.currentTarget.id);
+            getLikes();
+            button.classList.add('clicked');
+            button.style.color = 'red';
+          }
+        });
+      }
+    });
+  getLikes();
+};
 export default shows;
