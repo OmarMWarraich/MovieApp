@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# MoviesApp
 
-> movies-app
+Discover your next favorite movie with our app. Our platform fetches real-time data from a movie API to bring you the latest and greatest in cinema. Browse through our extensive collection and find the perfect film for any mood. With our like and dislike feature, you can easily keep track of the movies you love and the ones you’d rather skip. Our intuitive interface makes it easy to find what you’re looking for and discover new favorites. Download our app today and start exploring the world of cinema!” Is there anything else you would like me to add or change? 😊
 
 ## Built With
 
