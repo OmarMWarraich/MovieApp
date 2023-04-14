@@ -10,7 +10,7 @@ Discover your next favorite movie with our app. Our platform fetches real-time d
 
 ## Live Demo 
 
-[Live demo](http://cryptoova.me/group-capstone/dist/index.html)
+[Live demo](http://cryptoova.me/MovieApp/dist/index.html)
 
 ## Getting Started
 
